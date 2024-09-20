@@ -1,4 +1,5 @@
 # Foundational Install
+
 Foundational Install - a predefined process or chain of task strategically outlined with the end goal of installing Debian 12 as a noob. This is my very first attempt at using Linux all together and due to the learning curve involved, I will be documenting my steps via this - Foundational Install documentation. 
 
 
@@ -8,7 +9,8 @@ Managing a firewall on a system can be a monumental task, but one of the most im
 
 
 
-#Install UFW
+[# Install UFW](https://christitus.com/linux-security-mistakes/#google_vignette)
+
 1. Uncomplicated Firewall is easy to setup and understand. It blocks traffic and allows it.
 
 sudo apt install ufw
@@ -23,7 +25,8 @@ sudo ufw default allow outgoing
 sudo ufw enable
 
 
-#Install Fail2Ban
+[# Install Fail2Ban](https://christitus.com/linux-security-mistakes/#google_vignette)
+
 3. Fail2Ban is one of the best programs that is installed in every single Linux server I have EVER installed. This program is a intrusion prevention utility. Most install it, but forget to configure and use it. These are the settings I like to use.
 
 
