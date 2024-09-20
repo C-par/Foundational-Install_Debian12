@@ -1,9 +1,14 @@
 # Foundational Install
 
-Foundational Install - a predefined process or chain of task strategically outlined with the end goal of installing Debian 12 as a noob. This is my very first attempt at using Linux all together and due to the learning curve involved, I will be documenting my steps via this - Foundational Install documentation. 
+Foundational Install - a predefined process or chain of task strategically outlined with the end goal of installing Debian 12 as a noob. This is my very first attempt at using Linux all together and due to the learning curve involved, I will be documenting my steps learned/taken via this - Foundational Install documentation. 
 
+Special 'Thank You' to Chris Titus, who inspired me to start my Linux journey via his detail youtube walk-throughs. Here is a link to his website where you will find a multitude of guides and how-to documents: 
 
+[Chris Titus - Website](https://christitus.com/)
 
+[Chris Titus - Github](https://github.com/ChrisTitusTech)
+
+# Lets get started!
 
 Managing a firewall on a system can be a monumental task, but one of the most important is managing the traffic coming to and from your computer. The best packages for this in Linux is ufw and fail2ban.
 
