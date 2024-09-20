@@ -2,11 +2,7 @@
 
 Foundational Debian 12 Install - a predefined process or chain of task strategically outlined with the end goal of installing Debian 12 as a noob. This is my very first attempt at using Linux all together and due to the learning curve involved, I will be documenting my steps learned/taken via this - Foundational Debian 12 Install documentation. Anyone can install this OS however, it will be beneficial to have a basic understanding of the hardware you are working with and its corresponding overall compatability with Debian 12. For the most part, as long as you have the prerequisites advised here [2.1. Supported Hardware](https://www.debian.org/releases/bookworm/amd64/ch02s01.en.html), you should be able to get it installed without issue.  
 
-Special 'Thank You' to Chris Titus, who inspired me to start my Linux journey via his detail youtube walk-throughs. Here is a link to his website where you will find a multitude of guides and how-to documents: 
-
-### [Chris Titus - Website](https://christitus.com/)
-
-### [Chris Titus - Github](https://github.com/ChrisTitusTech)
+Special 'Thank You' to Chris Titus [Website](https://christitus.com/) & [Github](https://github.com/ChrisTitusTech), who inspired me to start my Linux journey via his detail youtube walk-throughs. Here is a link to his website where you will find a multitude of guides and how-to documents: 
 
 ## Lets get started!
 
