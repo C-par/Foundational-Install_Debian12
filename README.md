@@ -20,7 +20,7 @@ Managing a firewall on a system can be a monumental task, but one of the most im
 
 1. Uncomplicated Firewall is easy to setup and understand. It blocks traffic and allows it.
 
-sudo apt install ufw
+`sudo apt install ufw`
 
 2. Recommended Rules
 
@@ -37,9 +37,9 @@ sudo ufw enable
 3. Fail2Ban is one of the best programs that is installed in every single Linux server I have EVER installed. This program is a intrusion prevention utility. Most install it, but forget to configure and use it. These are the settings I like to use.
 
 
-sudo apt install fail2ban
+`sudo apt install fail2ban`
 
 4. Enabling Fail2Ban
 
-sudo systemctl enable fail2ban
-sudo systemctl start fail2ban
+`sudo systemctl enable fail2ban`
+`sudo systemctl start fail2ban`
