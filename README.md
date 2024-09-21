@@ -6,6 +6,12 @@ Special 'Thank You' to Chris Titus, who inspired me to start my Linux journey vi
 
 ## Lets get started!
 
+> [!TIP]
+> Important Note: Remember, it is important to know what you installed via the command line because various installs may impact your system negitivley. You can check what you installed via the > command line, use the code below.
+
+'sudo cat /var/log/apt/history.log |grep install'
+
+
 Managing a firewall on a system can be a monumental task, but one of the most important is managing the traffic coming to and from your computer. The best packages for this in Linux is ufw and fail2ban.
 
 
