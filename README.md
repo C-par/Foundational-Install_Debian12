@@ -4,12 +4,16 @@ Foundational Debian 12 Install - a predefined process or chain of task strategic
 
 Special 'Thank You' to Chris Titus, who inspired me to start my Linux journey via his detail youtube walk-throughs. Here is a link to his Website & Github where you will find a multitude of guides and how-to documents: [Website](https://christitus.com/) & [Github](https://github.com/ChrisTitusTech)
 
+
+
 ## Lets get started!
 
 > [!TIP]
 > Remember, it is important to know what you installed via the command line because various installs may impact your system negitivley. You can check what you installed via the command line, use the code below.
 
+
 - `sudo cat /var/log/apt/history.log |grep install`
+
 
 > [!TIP]
 > Optional: De-bloat Debian 12 by removing pre-installed games, use the code below. 
@@ -20,14 +24,14 @@ Managing a firewall on a system can be a monumental task, but one of the most im
 
 
 > [!IMPORTANT]
+> Uncomplicated Firewall is easy to setup and understand. It blocks traffic and allows it.
 ### [Install UFW](https://christitus.com/linux-security-mistakes/#google_vignette)
 
-1. Uncomplicated Firewall is easy to setup and understand. It blocks traffic and allows it.
-
+> Install code below:
 - `sudo apt install ufw`
 
-> Recommended Rules
 
+> Recommended Rules. Install code below:
 - `sudo ufw limit 22/tcp`
 - `sudo ufw allow 80/tcp`
 - `sudo ufw allow 443/tcp`
@@ -37,14 +41,14 @@ Managing a firewall on a system can be a monumental task, but one of the most im
 
 
 > [!IMPORTANT]
+> Fail2Ban is one of the best programs that is installed in every single Linux server I have EVER installed. This program is a intrusion prevention utility. Most install it, but forget to
+> configure and use it. These are the settings I like to use.
 ### [Install Fail2Ban](https://christitus.com/linux-security-mistakes/#google_vignette)
 
-3. Fail2Ban is one of the best programs that is installed in every single Linux server I have EVER installed. This program is a intrusion prevention utility. Most install it, but forget to configure and use it. These are the settings I like to use.
-
-
+> Install code below:
 - `sudo apt install fail2ban`
 
-4. Enabling Fail2Ban
 
+> Enabling Fail2Ban. Install code below:
 - `sudo systemctl enable fail2ban`
 - `sudo systemctl start fail2ban`
