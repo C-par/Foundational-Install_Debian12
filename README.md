@@ -19,14 +19,14 @@ Special 'Thank You' to Chris Titus, who inspired me to start my Linux journey vi
 Managing a firewall on a system can be a monumental task, but one of the most important is managing the traffic coming to and from your computer. The best packages for this in Linux is ufw and fail2ban.
 
 
-
+> [!IMPORTANT]
 ### [Install UFW](https://christitus.com/linux-security-mistakes/#google_vignette)
 
 1. Uncomplicated Firewall is easy to setup and understand. It blocks traffic and allows it.
 
 - `sudo apt install ufw`
 
-2. Recommended Rules
+> Recommended Rules
 
 - `sudo ufw limit 22/tcp`
 - `sudo ufw allow 80/tcp`
@@ -36,6 +36,7 @@ Managing a firewall on a system can be a monumental task, but one of the most im
 - `sudo ufw enable`
 
 
+> [!IMPORTANT]
 ### [Install Fail2Ban](https://christitus.com/linux-security-mistakes/#google_vignette)
 
 3. Fail2Ban is one of the best programs that is installed in every single Linux server I have EVER installed. This program is a intrusion prevention utility. Most install it, but forget to configure and use it. These are the settings I like to use.
