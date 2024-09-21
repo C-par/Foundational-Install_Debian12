@@ -9,7 +9,7 @@ Special 'Thank You' to Chris Titus, who inspired me to start my Linux journey vi
 > [!TIP]
 > Important Note: Remember, it is important to know what you installed via the command line because various installs may impact your system negitivley. You can check what you installed via the > command line, use the code below.
 
-`sudo cat /var/log/apt/history.log |grep install`
+- `sudo cat /var/log/apt/history.log |grep install`
 
 
 Managing a firewall on a system can be a monumental task, but one of the most important is managing the traffic coming to and from your computer. The best packages for this in Linux is ufw and fail2ban.
@@ -20,16 +20,16 @@ Managing a firewall on a system can be a monumental task, but one of the most im
 
 1. Uncomplicated Firewall is easy to setup and understand. It blocks traffic and allows it.
 
-`sudo apt install ufw`
+- `sudo apt install ufw`
 
 2. Recommended Rules
 
-sudo ufw limit 22/tcp
-sudo ufw allow 80/tcp
-sudo ufw allow 443/tcp
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw enable
+- `sudo ufw limit 22/tcp`
+- `sudo ufw allow 80/tcp`
+- `sudo ufw allow 443/tcp`
+- `sudo ufw default deny incoming`
+- `sudo ufw default allow outgoing`
+- `sudo ufw enable`
 
 
 ### [Install Fail2Ban](https://christitus.com/linux-security-mistakes/#google_vignette)
@@ -37,9 +37,9 @@ sudo ufw enable
 3. Fail2Ban is one of the best programs that is installed in every single Linux server I have EVER installed. This program is a intrusion prevention utility. Most install it, but forget to configure and use it. These are the settings I like to use.
 
 
-`sudo apt install fail2ban`
+- `sudo apt install fail2ban`
 
 4. Enabling Fail2Ban
 
-`sudo systemctl enable fail2ban`
-`sudo systemctl start fail2ban`
+- `sudo systemctl enable fail2ban`
+- `sudo systemctl start fail2ban`
