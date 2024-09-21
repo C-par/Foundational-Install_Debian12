@@ -7,9 +7,13 @@ Special 'Thank You' to Chris Titus, who inspired me to start my Linux journey vi
 ## Lets get started!
 
 > [!TIP]
-> Important Note: Remember, it is important to know what you installed via the command line because various installs may impact your system negitivley. You can check what you installed via the > command line, use the code below.
+> Remember, it is important to know what you installed via the command line because various installs may impact your system negitivley. You can check what you installed via the command line, use the code below.
 
 - `sudo cat /var/log/apt/history.log |grep install`
+
+> [!TIP]
+> Optional: De-bloat Debian 12 by removing pre-installed games, use the code below. 
+- `sudo apt purge iagno lightsoff four-in-a-row gnome-robots pegsolitaire gnome-2048 hitori gnome-klotski gnome-mines gnome-mahjongg gnome-sudoku quadrapassel swell-foop gnome-tetravex gnome-taquin aisleriot gnome-chess five-or-more gnome-nibbles tali ; sudo apt autoremove`
 
 
 Managing a firewall on a system can be a monumental task, but one of the most important is managing the traffic coming to and from your computer. The best packages for this in Linux is ufw and fail2ban.
