@@ -24,7 +24,8 @@ Managing a firewall on a system can be a monumental task, but one of the most im
 
 
 > [!IMPORTANT]
-> Uncomplicated Firewall is easy to setup and understand. It blocks traffic and allows it.
+> The Uncomplicated Firewall (ufw) is a frontend for iptables and is particularly well-suited for host-based firewalls. ufw provides a framework for managing netfilter, as well as a command-line
+> interface for manipulating the firewall
 ### [Install UFW](https://christitus.com/linux-security-mistakes/#google_vignette)
 
 > Install code below:
@@ -41,8 +42,7 @@ Managing a firewall on a system can be a monumental task, but one of the most im
 
 
 > [!IMPORTANT]
-> Fail2Ban is one of the best programs that is installed in every single Linux server I have EVER installed. This program is a intrusion prevention utility. Most install it, but forget to
-> configure and use it. These are the settings I like to use.
+> Fail2Ban scans log files like /var/log/auth.log and bans IP addresses conducting too many failed login attempts. It does this by updating system firewall rules to reject new connections from > those IP addresses, for a configurable amount of time. 
 ### [Install Fail2Ban](https://christitus.com/linux-security-mistakes/#google_vignette)
 
 > Install code below:
