@@ -56,73 +56,73 @@ Managing a firewall on a system can be a monumental task, but one of the most im
 
 
 
-
+> [!IMPORTANT]
 > Linux System Hardening with auditd
-Step-by-Step Guide: Harden Linux with auditd
-1. Install auditd
+> Step-by-Step Guide: Harden Linux with auditd
+> 1. Install auditd
 ------------------
-sudo apt update
-sudo apt install auditd audispd-plugins
-2. Enable and Start auditd
+- sudo apt update
+- sudo apt install auditd audispd-plugins
+> 2. Enable and Start auditd
 ---------------------------
-sudo systemctl enable auditd
-sudo systemctl start auditd
-sudo systemctl status auditd
-3. All-Encompassing auditd Rules
+- sudo systemctl enable auditd
+- sudo systemctl start auditd
+- sudo systemctl status auditd
+> 3. All-Encompassing auditd Rules
 --------------------------------
-Edit: /etc/audit/rules.d/hardening.rules
-Paste the following:
-## ==== Start of Audit Rules ==== ##
-## Monitor user logins
--w /var/log/faillog -p wa -k logins
--w /var/log/lastlog -p wa -k logins
--w /var/log/tallylog -p wa -k logins
--w /var/log/wtmp -p wa -k logins
--w /var/log/btmp -p wa -k logins
-## Monitor usage of privileged commands
--w /usr/bin/sudo -p x -k privilege
--w /bin/su -p x -k privilege
--w /usr/bin/passwd -p x -k privilege
--w /usr/bin/chsh -p x -k privilege
-## Watch for changes to critical system files
--w /etc/passwd -p wa -k user_mods
--w /etc/shadow -p wa -k user_mods
--w /etc/group -p wa -k user_mods
--w /etc/gshadow -p wa -k user_mods
--w /etc/sudoers -p wa -k sudoers
-## Track all command executions (64-bit and 32-bit)
--a always,exit -F arch=b64 -S execve -k exec_log
--a always,exit -F arch=b32 -S execve -k exec_log
-## Monitor file deletions by users
--a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F
-auid!=4294967295 -k delete
-## Monitor system time changes
--a always,exit -F arch=b64 -S adjtimex -S settimeofday -S clock_settime -k time_change
--w /etc/localtime -p wa -k time_change
-## Monitor changes to audit configuration
--w /etc/audit/ -p wa -k audit_rules
--w /etc/audit/audit.rules -p wa -k audit_rules
-## Monitor network configuration
--w /etc/hosts -p wa -k net_config
--w /etc/network/ -p wa -k net_config
--w /etc/hostname -p wa -k net_config
-## Monitor kernel module changes
--w /sbin/insmod -p x -k kernel_modules
--w /sbin/rmmod -p x -k kernel_modules
--w /sbin/modprobe -p x -k kernel_modules
--a always,exit -F arch=b64 -S init_module -S delete_module -k kernel_modules
-## ==== End of Audit Rules ==== ##
-4. Apply the Rules
+- Edit: /etc/audit/rules.d/hardening.rules
+- Paste the following:
+- ## ==== Start of Audit Rules ==== ##
+- ## Monitor user logins
+- -w /var/log/faillog -p wa -k logins
+- -w /var/log/lastlog -p wa -k logins
+- -w /var/log/tallylog -p wa -k logins
+- -w /var/log/wtmp -p wa -k logins
+- -w /var/log/btmp -p wa -k logins
+- ## Monitor usage of privileged commands
+- -w /usr/bin/sudo -p x -k privilege
+- -w /bin/su -p x -k privilege
+- -w /usr/bin/passwd -p x -k privilege
+- -w /usr/bin/chsh -p x -k privilege
+- ## Watch for changes to critical system files
+- -w /etc/passwd -p wa -k user_mods
+- -w /etc/shadow -p wa -k user_mods
+- -w /etc/group -p wa -k user_mods
+- -w /etc/gshadow -p wa -k user_mods
+- -w /etc/sudoers -p wa -k sudoers
+- ## Track all command executions (64-bit and 32-bit)
+- -a always,exit -F arch=b64 -S execve -k exec_log
+- -a always,exit -F arch=b32 -S execve -k exec_log
+- ## Monitor file deletions by users
+- -a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F
+- auid!=4294967295 -k delete
+- ## Monitor system time changes
+- -a always,exit -F arch=b64 -S adjtimex -S settimeofday -S clock_settime -k time_change
+- -w /etc/localtime -p wa -k time_change
+- ## Monitor changes to audit configuration
+- -w /etc/audit/ -p wa -k audit_rules
+- -w /etc/audit/audit.rules -p wa -k audit_rules
+- ## Monitor network configuration
+- -w /etc/hosts -p wa -k net_config
+- -w /etc/network/ -p wa -k net_config
+- -w /etc/hostname -p wa -k net_config
+- ## Monitor kernel module changes
+- -w /sbin/insmod -p x -k kernel_modules
+- -w /sbin/rmmod -p x -k kernel_modules
+- -w /sbin/modprobe -p x -k kernel_modules
+- -a always,exit -F arch=b64 -S init_module -S delete_module -k kernel_modules
+- ## ==== End of Audit Rules ==== ##
+> 4. Apply the Rules
 -------------------
-sudo augenrules --load
-sudo systemctl restart auditd
-5. View Logs
+- sudo augenrules --load
+- sudo systemctl restart auditd
+> 5. View Logs
 -------------
-sudo ausearch -k exec_log
-sudo aureport --summary
-6. Enable audit at Boot
+- sudo ausearch -k exec_log
+- sudo aureport --summary
+> 6. Enable audit at Boot
 ------------------------
-Edit /etc/default/grub:
-GRUB_CMDLINE_LINUX="audit=1"
-Update grub:
-sudo update-grub
+- Edit /etc/default/grub:
+- GRUB_CMDLINE_LINUX="audit=1"
+- Update grub:
+- sudo update-grub
