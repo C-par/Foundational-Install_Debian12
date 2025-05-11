@@ -76,46 +76,46 @@ Managing a firewall on a system can be a monumental task, but one of the most im
 
   
 - Paste the following:
-- ## ==== Start of Audit Rules ==== ##
-- ## Monitor user logins
+- `## ==== Start of Audit Rules ==== ##`
+- `## Monitor user logins`
 - `-w /var/log/faillog -p wa -k logins`
 - `-w /var/log/lastlog -p wa -k logins`
 - `-w /var/log/tallylog -p wa -k logins`
 - `-w /var/log/wtmp -p wa -k logins`
 - `-w /var/log/btmp -p wa -k logins`
-- ## Monitor usage of privileged commands
+- `## Monitor usage of privileged commands`
 - `-w /usr/bin/sudo -p x -k privilege`
 - `-w /bin/su -p x -k privilege`
 - `-w /usr/bin/passwd -p x -k privilege`
 - `-w /usr/bin/chsh -p x -k privilege`
-- ## Watch for changes to critical system files
+- `## Watch for changes to critical system files`
 - `-w /etc/passwd -p wa -k user_mods`
 - `-w /etc/shadow -p wa -k user_mods`
 - `-w /etc/group -p wa -k user_mods`
 - `-w /etc/gshadow -p wa -k user_mods`
 - `-w /etc/sudoers -p wa -k sudoers`
-- ## Track all command executions (64-bit and 32-bit)
+- `## Track all command executions (64-bit and 32-bit)`
 - `-a always,exit -F arch=b64 -S execve -k exec_log`
 - `-a always,exit -F arch=b32 -S execve -k exec_log`
-- ## Monitor file deletions by users
+- `## Monitor file deletions by users`
 - `-a always,exit -F arch=b64 -S unlink -S unlinkat -S rename -S renameat -F auid>=1000 -F`
 - `auid!=4294967295 -k delete`
-- ## Monitor system time changes
+- `## Monitor system time changes`
 - `-a always,exit -F arch=b64 -S adjtimex -S settimeofday -S clock_settime -k time_change`
 - `-w /etc/localtime -p wa -k time_change`
-- ## Monitor changes to audit configuration
+- `## Monitor changes to audit configuration`
 - `-w /etc/audit/ -p wa -k audit_rules`
 - `-w /etc/audit/audit.rules -p wa -k audit_rules`
-- ## Monitor network configuration
+- `## Monitor network configuration`
 - `-w /etc/hosts -p wa -k net_config`
 - `-w /etc/network/ -p wa -k net_config`
 - `-w /etc/hostname -p wa -k net_config`
-- ## Monitor kernel module changes
+- `## Monitor kernel module changes`
 - `-w /sbin/insmod -p x -k kernel_modules`
 - `-w /sbin/rmmod -p x -k kernel_modules`
 - `-w /sbin/modprobe -p x -k kernel_modules`
 - `-a always,exit -F arch=b64 -S init_module -S delete_module -k kernel_modules`
-- ## ==== End of Audit Rules ==== ##
+- `## ==== End of Audit Rules ==== ##`
 > 4. Apply the Rules
 -------------------
 - `sudo augenrules --load`
