@@ -55,6 +55,17 @@ Managing a firewall on a system can be a monumental task, but one of the most im
 
 
 
+> Enable systemd-timesyncd which is built into systemd and used by Parrot OS by default:
+> The second line checks the status
+- `sudo timedatectl set-ntp true`
+- `timedatectl status`
+
+> Install AIDE (Advanced Intrusion Detection Enviorment)
+- `sudo apt install aide`
+- `sudo aideinit`
+- `cp /var/lib/aide/aide.db.new /var/lib/aide/aide.db`
+- `sudo aide --check`
+
 
 > [!IMPORTANT]
 > Linux System Hardening with auditd
